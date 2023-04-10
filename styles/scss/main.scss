@@ -1,0 +1,172 @@
+// - Variables
+
+// Colors
+
+$violet: hsl(257, 40%, 49%);
+$magenta: hsl(300, 69%, 71%);
+
+// Font weights
+
+$headings: 600;
+$paragraphs: 400;
+
+// Fonts
+
+$poppins: 'Poppins', sans-serif;
+$opensans: 'Open Sans', sans-serif;
+
+// - Mixins
+
+@mixin fontFamily($font) {
+        font-family: $font;
+}
+
+@mixin flex($flex-direction) {
+        display: flex;
+        flex-direction: $flex-direction;
+        justify-content: center;
+        align-items: center;
+}
+
+// - General 
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+body {
+        @include fontFamily($opensans);
+        font-weight: $paragraphs;   
+}
+
+a {
+        text-decoration: none;
+}
+
+.container {
+        padding-left: 6rem;
+        padding-right: 6rem;
+        margin-top: 4.5rem;
+}
+
+// - Main
+
+.main-background {
+        background-image: url("../images/bg-desktop.svg");
+        height: 100vh;
+        background-color: $violet;
+        background-repeat: no-repeat;
+        background-size: 100%;
+}
+
+.logo {
+        width: 15rem;
+}
+
+// - Hero
+
+.hero {
+        @include flex(row);
+        align-items: flex-start;
+}
+
+.hero-text {
+        @include flex(column);
+        align-items: flex-start;
+        max-width: 600px;
+}
+
+.mockups {
+        width: 50vw;
+        margin-right: 10rem;
+}
+
+.title {
+        font-size: 3rem;
+        color: white;
+        font-weight: $headings;
+        @include fontFamily($poppins);
+        margin-bottom: 1.5rem;
+        padding-top: 5rem;
+}
+
+.desc {
+        font-size: 1.3rem;
+        color: white;
+        font-weight: 400;
+        @include fontFamily($opensans);
+}
+
+.hero-button {
+        margin-top: 1.5rem;
+        padding: 1.2rem 4.5rem;
+        color: $violet;
+        font-size: 1.5rem;
+        border-radius: 100px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 200ms ease-in-out;
+        box-shadow: -2px 1px 20px -6px black;
+        &:hover {
+                background-color: $magenta;
+                color: white;
+        }
+}
+
+.footer-icons {
+        display: flex;
+        flex-direction: row-reverse;
+        color: white;
+        gap: 1.5rem;
+        font-size: 1.5rem;
+        position: relative;
+        cursor: pointer;
+}
+
+
+.circle {
+        border-radius: 100%;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 4px 10px;
+        &:hover {
+                color: $magenta;
+                border: 2px solid $magenta;
+        }
+}
+
+footer {
+        height: 10vh;
+}
+
+@media (max-width: 1481px) {
+        .main-background {
+                background-image: url("../images/bg-mobile.svg");
+        }
+
+        .logo {
+                width: 10rem;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-start;
+        }
+
+        .hero {
+                flex-wrap: wrap;
+                gap: 0;
+                align-items: center;
+        }
+
+        .hero-text {
+                align-items: center;
+                text-align: center;
+        }
+
+        .mockups {
+                width: 350px;
+                margin: auto;
+        }
+}
